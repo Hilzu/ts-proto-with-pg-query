@@ -1,0 +1,20 @@
+{
+  "name": "ts-proto-with-pg-query",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:overflow": "npm run build:overflow:proto && npm run build:ts",
+    "build:overflow:proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=. pg_query.proto",
+    "build:invalid": "npm run build:invalid:proto && npm run build:ts",
+    "build:invalid:proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_opt=outputPartialMethods=false --ts_proto_out=. pg_query.proto",
+    "build:ts": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-proto": "^1.158.0",
+    "typescript": "^5.2.2"
+  }
+}
